@@ -13,48 +13,36 @@ class MyApp extends StatelessWidget {
         body: Column(
           children: [
             Container(
-              color: Colors.yellow, // Color de fondo amarillo
+              color: const Color.fromARGB(255, 102, 157, 219),
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // Icono del menú
                   CircleAvatar(
-                    backgroundColor: Colors.green,
+                    backgroundColor: const Color.fromARGB(255, 10, 32, 105),
                     radius: 20,
-                    child: Icon(Icons.menu, color: Colors.white),
+                    child: Icon(Icons.menu,
+                        color: const Color.fromARGB(255, 245, 245, 245)),
                   ),
-                  // Título y subtítulo centrados
                   Column(
                     children: [
                       Text(
-                        'Universidad Tecnológica de Santiago',
+                        'Universidad de Ciencias de la Computación',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
-                      Text(
-                        'SISTEMA CORPORATIVO',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.green,
-                        ),
-                      ),
                     ],
                   ),
-                  // Botón de acceso
                   ElevatedButton.icon(
-                    onPressed: () {
-                      // Acción del botón
-                    },
+                    onPressed: () {},
                     icon: Icon(Icons.person, color: Colors.white),
                     label: Text('Acceso'),
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
-                      backgroundColor: Colors.green, // Color del texto
+                      backgroundColor: const Color.fromARGB(255, 10, 32, 105),
                       padding: EdgeInsets.symmetric(horizontal: 12),
                     ),
                   ),
