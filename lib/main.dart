@@ -24,17 +24,16 @@ class MyApp extends StatelessWidget {
                     child: Icon(Icons.menu,
                         color: const Color.fromARGB(255, 245, 245, 245)),
                   ),
-                  Column(
-                    children: [
-                      Text(
-                        'Universidad de Ciencias de la Computación',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                  Expanded(
+                    child: Text(
+                      'Universidad de Ciencias de la Computación',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
-                    ],
+                    ),
                   ),
                   ElevatedButton.icon(
                     onPressed: () {},
@@ -49,8 +48,79 @@ class MyApp extends StatelessWidget {
                 ],
               ),
             ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                  ),
+                  itemCount: 8,
+                  itemBuilder: (context, index) {
+                    final items = [
+                      {'icon': Icons.person_add, 'label': 'Registrar alumno'},
+                      {'icon': Icons.group, 'label': 'Administrar grupos'},
+                      {
+                        'icon': Icons.description,
+                        'label': 'Boletas de alumnos'
+                      },
+                      {'icon': Icons.book, 'label': 'Registrar materias'},
+                      {'icon': Icons.school, 'label': 'Administrar docentes'},
+                      {
+                        'icon': Icons.bar_chart,
+                        'label': 'Gráficas de crecimiento'
+                      },
+                      {'icon': Icons.schedule, 'label': 'Horarios de clase'},
+                      {'icon': Icons.print, 'label': 'Imprimir horarios'},
+                    ];
+
+                    return _buildOptionCard(
+                      icon: items[index]['icon'] as IconData,
+                      label: items[index]['label'] as String,
+                    );
+                  },
+                ),
+              ),
+            ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildOptionCard({
+    required IconData icon,
+    required String label,
+  }) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 5,
+            offset: Offset(2, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            icon,
+            size: 30,
+            color: const Color.fromARGB(255, 10, 32, 105),
+          ),
+          SizedBox(height: 10),
+          Text(
+            label,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+          ),
+        ],
       ),
     );
   }
